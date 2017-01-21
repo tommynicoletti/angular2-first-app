@@ -1,0 +1,15 @@
+<h1>String Interpolation</h1>
+<p>
+  databinding works! with: {{titolo}} - {{numero}}
+</p>
+<h1>Property Binding</h1>
+<input type="text" [value]="titolo" placeholder="Aggiungi del testo">
+<p [ngClass]="{bordoRosso:true}">Esiste stile in questo paragrafo tramite classe</p>
+
+<p [ngStyle]="{color:'green'}">Esiste stile in questo paragrafo tramite stile</p>
+<h1>Custom Property Binding</h1>
+<fa-property-binding [result]="10"></fa-property-binding>
+<h1>Event Binding</h1>
+<fa-event-binding (cliccato)="fatherGetChildMessage($event)"></fa-event-binding>
+<h1>Two-Way Binding</h1>
+<fa-two-way-binding></fa-two-way-binding>
