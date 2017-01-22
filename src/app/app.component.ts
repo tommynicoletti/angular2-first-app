@@ -15,6 +15,7 @@ import { Component } from '@angular/core';
       <fa-another>
         <p>Sumerissimo</p>
       </fa-another>
+      <fa-lifecycle></fa-lifecycle>
     `,
   styles: [`
       h1{
