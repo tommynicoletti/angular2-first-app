@@ -1,4 +1,5 @@
 import { Component,
+         Input,
          OnInit,
          OnChanges,
          DoCheck,
@@ -12,13 +13,14 @@ import { Component,
 @Component({
   selector: 'fa-lifecycle',
   template: `
-    <p>
-      lifecycle Works!
-    </p>
+    <ng-content></ng-content>
+    <h4>{{testChildValue}}</h4>
   `,
   styles: []
 })
 export class LifecycleComponent implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy{
+
+  @Input() testChildValue: string = "valore figlio iniziale";
 
   constructor() { }
 
