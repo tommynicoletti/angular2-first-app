@@ -16,7 +16,7 @@ import { Component } from '@angular/core';
         <p>Sumerissimo</p>
       </fa-another>
       <fa-lifecycle [testChildValue]="changingValue">
-        <h3>{{testValue}}</h3>
+        <h3 #fatherElement>{{testValue}}</h3>
       </fa-lifecycle>
       <button (click)="testValue='cambiato'">Cambia il valore della variabile padre</button>
       <button (click)="changingValue='il valore dal padre viene cambiato'">Cambia valore variabile input dal padre</button>

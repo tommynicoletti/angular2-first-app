@@ -7,20 +7,30 @@ import { Component,
          AfterContentChecked,
          AfterViewInit,
          AfterViewChecked,
-         OnDestroy
+         OnDestroy,
+         ViewChild,
+         ContentChild
 } from '@angular/core';
 
 @Component({
   selector: 'fa-lifecycle',
   template: `
     <ng-content></ng-content>
-    <h4>{{testChildValue}}</h4>
+    <p #testChildReference>{{testChildValue}}</p>
+    <h4>{{testChildReference.textContent}}</h4>
   `,
   styles: []
 })
 export class LifecycleComponent implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy{
 
-  @Input() testChildValue: string = "valore figlio iniziale";
+  @Input()
+  testChildValue: string = "valore figlio iniziale";
+
+  @ViewChild('testChildReference')
+  testChildReference: string;
+
+  @ContentChild('fatherElement')
+  fatherElement: string;
 
   constructor() { }
 
@@ -38,6 +48,11 @@ export class LifecycleComponent implements OnInit, OnChanges, DoCheck, AfterCont
 
   ngAfterContentInit(){
     this.log("ngAfterContentInit");
+    this.log("Local Reference:");
+    this.log(this.testChildReference);
+    this.log("Parent Reference:")
+    this.log(this.fatherElement);
+
   }
 
   ngAfterContentChecked(){
@@ -46,6 +61,7 @@ export class LifecycleComponent implements OnInit, OnChanges, DoCheck, AfterCont
 
   ngAfterViewInit(){
     this.log("ngAfterViewInit");
+    this.log(this.testChildReference);
   }
 
   ngAfterViewChecked(){
